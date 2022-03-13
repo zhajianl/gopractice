@@ -25,3 +25,9 @@ kubectl apply -f deploy/service.yml
 kubectl apply -f deploy/deployment.yml
 
 kubectl port-forward -n prometheus-stack  --address 0.0.0.0 svc/kube-prometheus-stack-prometheus 9090:9090 
+
+#PromQL query
+histogram_quantile(0.50, sum(rate(cloudnative_execution_latency_seconds_bucket[5m])) by (le))
+
+
+kubectl port-forward -n prometheus-stack  --address 0.0.0.0 svc/kube-prometheus-stack-grafana 9000:80
