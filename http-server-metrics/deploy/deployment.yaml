@@ -29,7 +29,7 @@ spec:
                 configMapKeyRef:
                   key: httpport
                   name: myenv
-          image: cloudnativestg1.azurecr.io/httpserver:1.1
+          image: myharobr/httpserver:0.1
           imagePullPolicy: IfNotPresent
           livenessProbe:
             failureThreshold: 3
