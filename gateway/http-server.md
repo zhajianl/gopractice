@@ -23,5 +23,5 @@ istio-ingressgateway   LoadBalancer   $INGRESS_IP
 ### Access the httpserver
 
 ```sh
-curl -s -I -X HEAD http://httpserver.myhttpserver
+curl -s -I -X HEAD https://httpserver.myhttpserver
 ```
