@@ -7,7 +7,7 @@ kubectl create -f httpserver.yml -n myhttpserver
 ```
 
 ```sh
-openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -subj '/O=myhttpserver Inc./CN=*.myhttpserver.io' -keyout httpserver.myhttpserver.key -out  httpserver.myhttpserver.crt
+openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -subj '/O=myhttpserver Inc./CN=*.httpserver.myhttpserver' -keyout httpserver.myhttpserver.key -out  httpserver.myhttpserver.crt
 kubectl create -n istio-system secret tls myhttpserver-credential --key=httpserver.myhttpserver.key --cert=httpserver.myhttpserver.crt
 kubectl apply -f httpgw.yml -n myhttpserver
 ```
