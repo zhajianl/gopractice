@@ -7,7 +7,7 @@ spec:
     istio: ingressgateway
   servers:
     - hosts:
-        - httpsserver.cncamp.io
+        - httpsserver.myhttpserver
       port:
         name: https-default
         number: 443
