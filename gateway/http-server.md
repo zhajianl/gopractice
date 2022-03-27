@@ -20,7 +20,7 @@ k get svc -n istio-system
 istio-ingressgateway   LoadBalancer   $INGRESS_IP
 ```
 
-### Access the httpserver via ingress
+### Access the httpserver
 
 ```sh
 curl -s -I -X HEAD http://httpserver.myhttpserver
