@@ -7,8 +7,8 @@ kubectl create -f httpserver.yml -n myhttpserver
 ```
 
 ```sh
-openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -subj '/O=myhttpserver Inc./CN=*.myhttpserver.io' -keyout myhttpserver.io.key -out myhttpserver.io.crt
-kubectl create -n istio-system secret tls myhttpserver-credential --key=myhttpserver.io.key --cert=myhttpserver.io.crt
+openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -subj '/O=myhttpserver Inc./CN=*.myhttpserver.io' -keyout myhttpserver.io.key -out  httpserver.myhttpserver.crt
+kubectl create -n istio-system secret tls myhttpserver-credential --key=httpserver.myhttpserver.key --cert=httpserver.myhttpserver.crt
 kubectl apply -f httpgw.yml -n myhttpserver
 ```
 
@@ -23,5 +23,5 @@ istio-ingressgateway   LoadBalancer   $INGRESS_IP
 ### Access the httpserver via ingress
 
 ```sh
-curl -s -I -X HEAD http://httpserver-mesh.myhttpserver
+curl -s -I -X HEAD http://httpserver.myhttpserver
 ```
